@@ -3,180 +3,639 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mutual Understanding Agreement</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>The Akshay–Akshata Accord</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2744;
+      --gold: #c9a84c;
+      --gold-light: #e8c87a;
+      --cream: #faf7f0;
+      --burgundy: #7b2d3e;
+      --text: #2c2c2c;
+      --text-light: #666;
+    }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #f9fafb, #eef1f8);
-      color: #333;
+      font-family: 'Lato', sans-serif;
+      background: linear-gradient(135deg, #0f1b35 0%, #1a2744 30%, #4a1525 70%, #0f1b35 100%);
+      min-height: 100vh;
+      color: var(--text);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      opacity: 0;
+      animation: floatUp linear infinite;
+      color: rgba(201, 168, 76, 0.6);
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(100vh) rotate(0deg);   opacity: 0; }
+      10%  { opacity: 0.45; }
+      90%  { opacity: 0.45; }
+      100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* ── Page Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      animation: fadeInDown 0.9s ease-out both;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .header-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.35);
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      padding: 0.35rem 1.1rem;
+      border-radius: 50px;
+      margin-bottom: 1.4rem;
+    }
+
+    .header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5.5vw, 3.6rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 0.7rem;
+    }
+
+    .header h1 span {
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-subtitle {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.93rem;
+      letter-spacing: 0.04em;
+      font-style: italic;
+    }
+
+    /* ── Main Card ── */
+    .document {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow:
+        0 40px 100px rgba(0,0,0,0.45),
+        0 0 0 1px rgba(201,168,76,0.22),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+      animation: fadeInUp 1s ease-out 0.25s both;
     }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .animate-fade-in {
-      animation: fadeInUp 0.8s ease-out forwards;
+
+    /* ── Document Masthead ── */
+    .doc-header {
+      background: linear-gradient(135deg, #1a2744 0%, #24386a 60%, #3a1220 100%);
+      padding: 3rem 3rem 2rem;
+      text-align: center;
+      position: relative;
+      border-bottom: 2px solid transparent;
+      background-clip: padding-box;
+    }
+
+    .doc-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+    }
+
+    .doc-crest {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.3rem;
+    }
+
+    .doc-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .doc-header .parties {
+      color: var(--gold-light);
+      font-size: 1.1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      margin: 1rem 0 0.6rem;
+    }
+
+    .doc-header .parties strong {
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .doc-header .date-stamp {
+      color: rgba(255,255,255,0.42);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .rx-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(123,45,62,0.18);
+      border: 1px dashed rgba(201,168,76,0.4);
+      border-radius: 6px;
+      padding: 0.4rem 1rem;
+      font-size: 0.78rem;
+      color: var(--gold-light);
+      margin-top: 1.3rem;
+      font-style: italic;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Body ── */
+    .doc-body {
+      padding: 2.5rem 3rem;
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-title::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 1.3em;
+      background: linear-gradient(180deg, var(--gold), var(--burgundy));
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .section p {
+      color: #434343;
+      line-height: 1.9;
+      text-align: justify;
+      font-size: 0.97rem;
+    }
+
+    .section p + p { margin-top: 0.9rem; }
+
+    /* ── Clause List ── */
+    .clause-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .clause-list li {
+      color: #434343;
+      font-size: 0.97rem;
+      line-height: 1.75;
+      padding: 0.55rem 0.6rem 0.55rem 1.9rem;
+      position: relative;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .clause-list li:hover {
+      background: rgba(201,168,76,0.07);
+    }
+
+    .clause-list li::before {
+      content: '§';
+      position: absolute;
+      left: 0.5rem;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* ── Pun Callout ── */
+    .pun-callout {
+      background: linear-gradient(135deg, rgba(123,45,62,0.05), rgba(201,168,76,0.07));
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 1rem 1.3rem;
+      margin: 1.2rem 0 0;
+    }
+
+    .pun-label {
+      font-size: 0.68rem;
+      font-family: 'Lato', sans-serif;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+      font-weight: 700;
+    }
+
+    .pun-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--navy);
+      font-style: italic;
+      line-height: 1.65;
+    }
+
+    /* ── Disclaimer ── */
+    .disclaimer {
+      background: rgba(26,39,68,0.04);
+      border: 1px solid rgba(26,39,68,0.1);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      font-size: 0.84rem;
+      color: #777;
+      line-height: 1.75;
+      font-style: italic;
+    }
+
+    /* ── Signatures ── */
+    .signature-section {
+      padding: 2.2rem 3rem 2.8rem;
+      background: rgba(26,39,68,0.025);
+      border-top: 1px solid rgba(0,0,0,0.07);
+      text-align: center;
+    }
+
+    .signature-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 0.35rem;
+    }
+
+    .sig-subtitle {
+      color: #999;
+      font-size: 0.84rem;
+      font-style: italic;
+      margin-bottom: 2.5rem;
+    }
+
+    .signatures {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+    }
+
+    .sig-block { min-width: 190px; }
+
+    .sig-line {
+      width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--navy) 40%, var(--navy) 60%, transparent);
+      margin: 0 auto 0.8rem;
+    }
+
+    .sig-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .sig-role {
+      font-size: 0.78rem;
+      color: #999;
+      font-style: italic;
+      margin-top: 0.2rem;
+    }
+
+    .sig-date {
+      font-size: 0.76rem;
+      color: #bbb;
+      margin-top: 0.55rem;
+    }
+
+    .seal {
+      margin-top: 2.2rem;
+      font-size: 2.8rem;
+      opacity: 0.5;
+      letter-spacing: 0.5rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      animation: fadeInUp 1s ease-out 0.5s both;
+      line-height: 1.8;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .doc-header, .doc-body, .signature-section { padding: 1.5rem; }
     }
   </style>
 </head>
+<body>
 
-<body class="min-h-screen flex flex-col items-center py-10 px-4 md:px-0 bg-gradient-to-br from-gray-50 via-white to-indigo-50">
-  <div class="max-w-4xl w-full animate-fade-in">
-    
-    <!-- Header -->
-    <div class="text-center mb-10">
-      <div class="flex items-center justify-center gap-3 mb-5">
-        <svg class="text-indigo-400 w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </svg>
+  <div class="particles" id="particles"></div>
 
-        <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent">
-          Mutual Understanding Agreement
-        </h1>
+  <div class="container">
 
-        <svg class="text-indigo-400 w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </svg>
-      </div>
-      <p class="text-gray-600 text-lg tracking-wide">
-        A heartfelt declaration of understanding and respect
-      </p>
-    </div>
+    <!-- Page Header -->
+    <header class="header">
+      <div class="header-badge">Established · April 28, 2026</div>
+      <h1>The <span>Akshay – Akshata</span> Accord</h1>
+      <p class="header-subtitle">A document of considerable emotional significance and impeccable taste</p>
+    </header>
 
-    <!-- Document Container -->
-    <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-10 md:p-12 border border-gray-200 space-y-10 animate-fade-in">
+    <!-- Document -->
+    <main class="document">
 
-      <!-- Title -->
-      <div class="text-center border-b border-gray-200 pb-6">
-        <h2 class="text-3xl font-bold text-gray-800 mb-3">Mutual Understanding Agreement</h2>
-        <p class="text-gray-700 text-lg"><strong>Between</strong></p>
-        <p class="text-xl font-semibold text-gray-800 mt-2">Akshay Yelsange and Tapasya Ghorpade</p>
-        <p class="text-sm text-gray-500 italic mt-2">Dated: October 30, 2025</p>
+      <!-- Masthead -->
+      <div class="doc-header">
+        <div class="doc-crest">♡ ⚕ ♡</div>
+        <h2>Mutual Understanding Agreement</h2>
+        <p class="parties">Between <strong>Akshay Yelsange</strong> and <strong>Dr. Akshata</strong></p>
+        <p class="date-stamp">Dated · April 28, 2026</p>
+        <div class="rx-strip">
+          ℞ &nbsp;Clinically tested for sincerity &nbsp;·&nbsp; No prescription required &nbsp;·&nbsp; Results may vary with caffeine intake
+        </div>
       </div>
 
-      <!-- Introduction -->
-      <section>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4 border-l-4 border-indigo-300 pl-3">Introduction</h3>
-        <p class="text-gray-700 text-justify leading-relaxed tracking-wide">
-          This agreement is a mutual understanding between <strong>Akshay Yelsange</strong> (hereinafter referred to as "Akshay") 
-          and <strong>Tapasya Ghorpade</strong> (hereinafter referred to as "Tapu"). Both individuals willingly enter this 
-          agreement with the intention of building a trusting, respectful, and supportive companionship that 
-          values emotional honesty, care, and shared growth.
-        </p>
-        <p class="text-gray-700 text-justify leading-relaxed tracking-wide mt-3">
-          This document is not a legal contract but a heartfelt declaration of mutual promises designed to 
-          strengthen the foundation through communication, support, and genuine affection.
-        </p>
-      </section>
+      <!-- Body -->
+      <div class="doc-body">
 
-      <!-- Purpose -->
-      <section>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4 border-l-4 border-indigo-300 pl-3">Purpose</h3>
-        <p class="text-gray-700 text-justify leading-relaxed tracking-wide">
-          The purpose of this agreement is to nurture a relationship where both Akshay and Tapasya encourage 
-          each other's personal, emotional, and professional development while maintaining respect and 
-          understanding regardless of differences in skills, pace, or personality traits.
-        </p>
-      </section>
+        <!-- I -->
+        <section class="section">
+          <h3 class="section-title">Article I &mdash; Introduction</h3>
+          <p>
+            This Agreement is entered into freely, with full cognitive function, minimal prompting, and only a medically
+            acceptable level of butterflies. It is a mutual understanding between <strong>Akshay Yelsange</strong>
+            (hereinafter "Akshay", "The Party of Considerable Enthusiasm", or "The One Who Googled 'What Does Smitten Mean'")
+            and <strong>Dr. Akshata</strong> (hereinafter "Dr. Akshata", "The Doctor", or more precisely,
+            "The Leading Clinical Cause of Akshay's Persistently Elevated Heart Rate").
+          </p>
+          <p>
+            This document carries no legal enforceability — only the quiet weight of genuine intent, a firm handshake
+            of the hearts, and the shared understanding that Wi-Fi passwords will eventually be exchanged.
+          </p>
+          <div class="pun-callout">
+            <div class="pun-label">Noted for the Record</div>
+            <div class="pun-text">
+              Dr. Akshata once took Akshay's pulse. She never gave it back. This agreement is, in part, an attempt
+              to make that arrangement mutually satisfying.
+            </div>
+          </div>
+        </section>
 
-      <!-- Key Understanding -->
-      <section>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4 border-l-4 border-indigo-300 pl-3">Key Understanding</h3>
-        <ul class="space-y-3 text-gray-700 leading-relaxed tracking-wide">
-          <li>• Tapasya agrees that Akshay's dancing speed or skill will never be a reason to withdraw affection or communication.</li>
-          <li>• Akshay commits to self-improvement not from obligation, but to grow alongside Tapasya.</li>
-          <li>• Both agree to communicate expectations openly, without judgment or impatience.</li>
-          <li>• Efforts toward improvement, whether in dancing or communication, will be respected by both.</li>
-          <li>• Tapasya agrees to accompany Akshay on outings to strengthen connection and shared time.</li>
-          <li>• Akshay will initiate meaningful plans and shared experiences to bond positively.</li>
-        </ul>
-      </section>
+        <!-- II -->
+        <section class="section">
+          <h3 class="section-title">Article II &mdash; Purpose</h3>
+          <p>
+            The purpose of this Accord is to establish a shared framework for a companionship rooted in honesty,
+            mutual respect, and the quiet understanding that personal growth is not a sprint but a rather scenic walk —
+            and both parties agree to enjoy the view, together, without checking Google Maps every five minutes.
+          </p>
+          <p>
+            More precisely: to codify the terms under which Akshay and Dr. Akshata commit to being
+            <em>consistently excellent</em> to each other — even on days when the rest of the world is aggressively mediocre.
+          </p>
+          <div class="pun-callout">
+            <div class="pun-label">Diagnosis</div>
+            <div class="pun-text">
+              Prognosis: Excellent. Second opinion: Still excellent. Dr. Akshata is encouraged to note that Akshay's
+              condition is chronic, incurable, and entirely her doing. Treatment: continued presence.
+            </div>
+          </div>
+        </section>
 
-      <!-- Shared Values -->
-      <section>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4 border-l-4 border-indigo-300 pl-3">Shared Values and Growth</h3>
-        <ul class="space-y-3 text-gray-700 leading-relaxed tracking-wide">
-          <li>• They shall mutually help one another grow—emotionally, mentally, and professionally.</li>
-          <li>• Tapasya provides motivation and feedback when Akshay faces challenges.</li>
-          <li>• Akshay offers emotional support and encouragement for Tapasya’s ambitions.</li>
-          <li>• Both maintain honesty and patience in disagreements.</li>
-          <li>• Major decisions will be made collectively and respectfully.</li>
-          <li>• Their relationship shall be guided by trust, faith, and affection above all else.</li>
-          <li>• Neither will allow external influences to disrupt their bond.</li>
-          <li>• Time will be made for one another despite professional commitments.</li>
-          <li>• Tapasya will enjoy Akshay’s humor and reels with patience and warmth.</li>
-          <li>• Akshay supports Tapasya’s growth and emotional well-being wholeheartedly.</li>
-          <li>• Each will respect personal space and individuality.</li>
-          <li>• Disagreements will be discussed calmly, without interruption or blame.</li>
-        </ul>
-      </section>
+        <!-- III -->
+        <section class="section">
+          <h3 class="section-title">Article III &mdash; Key Understandings</h3>
+          <ul class="clause-list">
+            <li>Dr. Akshata acknowledges that Akshay's dancing, while enthusiastic, is best appreciated as performance
+              art — and agrees that affection shall not be contingent upon rhythm, tempo, or stylistic coherence.</li>
+            <li>Akshay commits to self-improvement — not from obligation, but because stagnation is boring, and this
+              relationship deserves far better than boring.</li>
+            <li>Both parties agree to communicate expectations openly, without passive aggression, cryptic sighing,
+              or the particularly dangerous phrase: <em>"I'm fine."</em></li>
+            <li>Dr. Akshata reserves the right to diagnose Akshay's moods, but agrees to prescribe conversation
+              rather than silence.</li>
+            <li>Akshay acknowledges that "doing research" and "scrolling reels at 1am" are not the same thing —
+              except on Fridays, by mutual exception.</li>
+            <li>Both recognise that disagreements are symptoms of two people who actually give a damn, and shall be
+              treated accordingly — with patience, not prescription pads.</li>
+          </ul>
+        </section>
 
-      <!-- Lifestyle Commitments -->
-      <section>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4 border-l-4 border-indigo-300 pl-3">Emotional and Lifestyle Commitments</h3>
-        <p class="text-gray-700 mb-3">Tapasya agrees to join Akshay for:</p>
-        <ul class="space-y-3 text-gray-700 leading-relaxed tracking-wide">
-          <li>• Occasional dinners to celebrate milestones or enjoy shared moments.</li>
-          <li>• Weekend lunches or casual outings to maintain connection.</li>
-          <li>• Movie nights or leisure activities to create shared memories.</li>
-          <li>• Participating in new or recreational activities to explore mutual interests.</li>
-        </ul>
-        <p class="text-gray-700 mt-4">
-          Akshay will reciprocate with thoughtful gestures, expressing appreciation for Tapasya’s care and companionship.
-        </p>
-        <p class="text-gray-700 mt-2">
-          Both agree that mutual effort and emotional presence matter more than perfection.
-        </p>
-      </section>
+        <!-- IV -->
+        <section class="section">
+          <h3 class="section-title">Article IV &mdash; Shared Values &amp; Growth</h3>
+          <ul class="clause-list">
+            <li>Growth shall be mutual — emotional, intellectual, and occasionally culinary.</li>
+            <li>Dr. Akshata's ambitions are not merely respected; they are actively championed, with the kind of
+              enthusiasm typically reserved for final-year results.</li>
+            <li>Akshay provides emotional support of the unconditional variety — no referral required.</li>
+            <li>Honesty in disagreements is non-negotiable. Winning an argument is far less satisfying than actually
+              understanding each other — both parties accept this reluctantly and completely.</li>
+            <li>Major decisions are made collectively, because two minds — particularly one that cleared med school —
+              are demonstrably better than one.</li>
+            <li>External opinions about this relationship are filed under: <em>Noted, Irrelevant, Archived.</em></li>
+            <li>Time for each other is not optional; it is the investment that pays compound emotional returns.</li>
+            <li>Dr. Akshata agrees to receive Akshay's humour with clinical tolerance and the occasional
+              genuine, unguarded laugh.</li>
+            <li>Akshay agrees not to self-diagnose via WebMD and spiral — that is explicitly Dr. Akshata's department.</li>
+            <li>Personal space is respected. Individuality is celebrated. Togetherness is chosen, daily.</li>
+          </ul>
+          <div class="pun-callout">
+            <div class="pun-label">Side Effects</div>
+            <div class="pun-text">
+              Known side effects of this relationship include: involuntary smiling at one's phone, an uncharacteristic
+              interest in medicine, the urge to share precisely one meme too many, and a general improvement in
+              one's resting disposition. Consult Dr. Akshata if symptoms persist. She will not be surprised.
+            </div>
+          </div>
+        </section>
 
-      <!-- Duration -->
-      <section>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4 border-l-4 border-indigo-300 pl-3">Duration and Understanding</h3>
-        <p class="text-gray-700 text-justify leading-relaxed tracking-wide">
-          This agreement represents a continuing understanding without a fixed end date, intended to evolve naturally 
-          as their relationship deepens. Both may discuss, review, or renew these terms mutually at any time to reaffirm commitment.
-        </p>
-      </section>
+        <!-- V -->
+        <section class="section">
+          <h3 class="section-title">Article V &mdash; Lifestyle &amp; Shared Experience</h3>
+          <p>
+            Both parties agree to actively invest in shared memories — the most durable form of emotional equity
+            and, notably, the only asset that appreciates with age and laughter.
+          </p>
+          <ul class="clause-list" style="margin-top:1rem;">
+            <li>Dinners — unhurried, where the conversation outlasts the dessert and neither party checks the time.</li>
+            <li>Weekend outings, casual or ambitious, guided by the principle that the best stories begin with
+              <em>"remember when we…"</em></li>
+            <li>Movie nights, with the mutual understanding that commentary during films is a recognised love language
+              in this household.</li>
+            <li>New experiences, including the slightly terrifying ones — which, experience confirms, become the
+              fondest memories.</li>
+          </ul>
+          <p style="margin-top:1.1rem;">
+            Akshay commits to thoughtfulness — not grand gestures for an audience, but small, deliberate acts of
+            care that compound, quietly, into something remarkable.
+          </p>
+          <div class="pun-callout">
+            <div class="pun-label">Prescription</div>
+            <div class="pun-text">
+              ℞ &nbsp;One good conversation daily. Two shared laughs, minimum. No ceiling on genuine warmth.
+              Refills: unlimited. Insurance: unnecessary — this one's covered.
+            </div>
+          </div>
+        </section>
 
-      <!-- Closing -->
-      <section>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4 border-l-4 border-indigo-300 pl-3">Closing Statement</h3>
-        <p class="text-gray-700 italic leading-relaxed tracking-wide">
-          Through this agreement, Akshay and Tapasya affirm their shared commitment to kindness, growth, and unwavering support. 
-          They recognize that relationships thrive through effort, empathy, and respect—values they both pledge to uphold.
-        </p>
-        <p class="text-gray-700 italic leading-relaxed tracking-wide mt-3">
-          In the presence of these mutual intents, both parties willingly sign this document with heartfelt sincerity.
-        </p>
-      </section>
+        <!-- VI -->
+        <section class="section">
+          <h3 class="section-title">Article VI &mdash; Duration</h3>
+          <p>
+            This Agreement carries no expiration date, no auto-renewal clause, and no fine print tucked beneath
+            the fold. It is designed to evolve alongside the people who signed it — growing more precise with time,
+            like a diagnosis refined by evidence, and a relationship refined by choice.
+          </p>
+          <p>
+            Either party may initiate a review at any time — not to renegotiate the spirit of this accord,
+            but to reaffirm it with greater clarity and perhaps better handwriting.
+          </p>
+        </section>
+
+        <!-- VII -->
+        <section class="section">
+          <h3 class="section-title">Article VII &mdash; Closing Statement</h3>
+          <p>
+            Akshay and Dr. Akshata enter this accord not because relationships require contracts, but because some
+            things deserve to be said — deliberately, clearly, and with enough wit that neither party falls asleep
+            mid-reading.
+          </p>
+          <p>
+            They recognise that what makes a companionship extraordinary is not the absence of imperfection, but the
+            consistent choice to show up — fully, without disclaimer, and with the kind of warmth that no qualification,
+            however distinguished, can teach and no syllabus can confer.
+          </p>
+          <div class="pun-callout">
+            <div class="pun-label">Final Note</div>
+            <div class="pun-text">
+              No relationship was harmed in the making of this document. The doctor, however, may need to treat
+              Akshay for an acute, recurrent case of adoration. The prognosis, she will find, is entirely her own doing.
+            </div>
+          </div>
+        </section>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+          <strong>Disclaimer:</strong> This is not a legal document. It is, however, a sincere one — which, in the long run,
+          carries considerably more weight. All puns pertaining to the medical profession are offered with the deepest
+          admiration for Dr. Akshata's expertise and zero liability for Akshay's sense of humour.
+          The Hippocratic Oath was not violated in the writing of this agreement. Probably.
+        </div>
+
+      </div>
 
       <!-- Signatures -->
-      <section class="pt-6 mt-8 border-t border-gray-200">
-        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Signatures</h3>
-        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div class="text-center">
-            <div class="border-t-2 border-gray-800 w-48 mx-auto mb-2"></div>
-            <p class="font-semibold text-gray-800 text-lg">Akshay Yelsange</p>
-            <p class="text-sm text-gray-600">Date: ______________</p>
+      <div class="signature-section">
+        <h3>In Witness &amp; Sincerity</h3>
+        <p class="sig-subtitle">Signed with intent, warmth, and perhaps a touch of audacity</p>
+        <div class="signatures">
+          <div class="sig-block">
+            <div class="sig-line"></div>
+            <div class="sig-name">Akshay Yelsange</div>
+            <div class="sig-role">The Party of Considerable Enthusiasm</div>
+            <div class="sig-date">Date: ________________</div>
           </div>
-          <div class="text-center">
-            <div class="border-t-2 border-gray-800 w-48 mx-auto mb-2"></div>
-            <p class="font-semibold text-gray-800 text-lg">Tapasya Ghorpade</p>
-            <p class="text-sm text-gray-600">Date: ______________</p>
+          <div class="sig-block">
+            <div class="sig-line"></div>
+            <div class="sig-name">Dr. Akshata</div>
+            <div class="sig-role">Chief Medical Officer of This Relationship</div>
+            <div class="sig-date">Date: ________________</div>
           </div>
         </div>
-      </section>
-    </div>
+        <div class="seal">⚕ &nbsp; ♡ &nbsp; ⚕</div>
+      </div>
+
+    </main>
 
     <!-- Footer -->
-    <footer class="text-center mt-10 text-gray-500 text-sm tracking-wide">
-      <p>Crafted with sincerity and mutual respect — 2025</p>
+    <footer class="footer">
+      <p>Crafted with sincerity, wit, and a medically-approved level of affection &middot; 2026</p>
+      <p style="margin-top:0.3rem;font-size:0.72rem;opacity:0.8;">
+        No puns were made at the expense of the medical profession. They were made in its honour.
+      </p>
     </footer>
 
   </div>
+
+  <script>
+    const symbols = ['♡', '✦', '℞', '♥', '✧', '⚕', '✿', '◦', '❧', '✩'];
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 24; i++) {
+      const el = document.createElement('div');
+      el.className = 'particle';
+      el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      el.style.cssText = `
+        left: ${Math.random() * 100}%;
+        animation-duration: ${12 + Math.random() * 12}s;
+        animation-delay: ${Math.random() * 18}s;
+        font-size: ${0.7 + Math.random() * 0.9}rem;
+      `;
+      container.appendChild(el);
+    }
+  </script>
 </body>
 </html>
