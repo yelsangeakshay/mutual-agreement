@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(gh api repos/yelsangeakshay/mutual-agreement/pages 2>&1)"
+    ]
+  }
+}
